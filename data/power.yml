@@ -1,0 +1,33 @@
+schema_name: Power
+schema_description: Features that represent electrical power grid
+attribution: <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy;
+  OpenStreetMap contributors</a>
+sources:
+  osm:
+    type: osm
+    url: geofabrik:switzerland
+layers:
+- id: power
+  features:
+  - source: osm
+    geometry: line
+    min_zoom: 7
+    include_when:
+      power:
+      - line
+    attributes:
+    - key: power
+    - key: voltage
+    - key: cables
+    - key: operator
+  - source: osm
+    geometry: line
+    min_zoom: 10
+    include_when:
+      power:
+      - minor_line
+    attributes:
+    - key: power
+    - key: voltage
+    - key: cables
+    - key: operator
